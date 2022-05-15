@@ -1,16 +1,17 @@
+package test;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import utilities.Driver;
 
-import java.sql.Driver;
 import java.util.concurrent.TimeUnit;
 
 public class Validate_Apple_Url {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver ", "/Users/meldasav/IdeaProjects/selenium_intro/chromedriver");
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        WebDriver driver= Driver.getDriver();
 
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+
         driver.get("https://www.apple.com/");
 
         String expectedURL = "https://www.apple.com/";
@@ -21,5 +22,4 @@ public class Validate_Apple_Url {
         driver.quit();
 
     }
-    }
-
+}

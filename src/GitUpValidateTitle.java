@@ -3,21 +3,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class ComfyTest {
+public class GitUpValidateTitle {
     public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "/Users/meldasav/IdeaProjects/selenium_intro/chromedriver");
-        
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver=new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-
-        driver.get(" https://comfyelite.com/");
-        System.out.println("The Title of the page is = " + driver.getTitle());
-
-        if (driver.getTitle().equals("COMFY ELITE - Pillow, Neck Pillow, Travel, Pillow")) System.out.println("comfyelite title validation passed");
-        else System.out.println("comfyelite title validation failed");
-        System.out.println("end of the program");
+        driver.get("https://github.com/");
+        String expectedTitle="github";
+        String actualTitle=driver.getTitle();
+        if(actualTitle.equals(expectedTitle)) System.out.println("Passed");
+        else System.out.println("failed");
         Thread.sleep(3000);
         driver.quit();
+
     }
 }
