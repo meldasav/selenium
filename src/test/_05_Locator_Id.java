@@ -7,24 +7,33 @@ import utilities.Driver;
 
 public class _05_Locator_Id {
     public static void main(String[] args) {
-        WebDriver driver= Driver.getDriver();
-        driver.get("https://www.techglobalschool.com/");
-        WebElement logo=driver.findElement(By.id("img comp-kuiqjide2"));
-        if(logo.isDisplayed()) System.out.println("passed");
-        else System.out.println("failed");
+        /*
+    Go to https://www.techglobalschool.com
 
-        driver.get("https://www.techglobalschool.com/");
-        WebElement name=driver.findElement(By.id("comp-kuiqjidf"));
-        WebElement quote=driver.findElement(By.id("comp-kuiqjidf1"));
+    Validate the company signature
+        Logo must be displayed in the header section
+        Company name must be displayed in the header section
+        Company quote must be displayed in the header section
+     */
 
-        if(name.isDisplayed() && quote.getText().equals("TechGlobal")) System.out.println("passed");
-        else System.out.println("failed");
+            WebDriver driver = Driver.getDriver();
 
-        if(quote.isDisplayed() && quote.getText().equals("Our Goal is your success")) System.out.println("passed");
-        else System.out.println("failed");
+            driver.get("https://www.techglobalschool.com");
 
+            WebElement logo = driver.findElement(By.id("img_comp-kuiqjide2"));
 
-        Driver.quitDriver();
+            if(logo.isDisplayed()) System.out.println("The logo validation PASSED");
+            else System.out.println("Logo validation FAILED!!!");
 
+            WebElement name = driver.findElement(By.id("comp-kuiqjidf"));
+            WebElement quote = driver.findElement(By.id("comp-kuiqjidf1"));
+
+            if(name.isDisplayed() && name.getText().equals("TechGlobal")) System.out.println("The name validation is PASSED");
+            else System.out.println("The name validation is FAILED!!!");
+
+            if(quote.isDisplayed() && quote.getText().equals("OUR GOAL IS YOUR SUCCESS")) System.out.println("The quote validation is PASSED");
+            else System.out.println("The quote validation is FAILED!!!");
+
+            Driver.quitDriver();
     }
 }
