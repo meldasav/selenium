@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utilities.Driver;
 
-public class _08_TagName {
+public class _08_Locator_TagName {
     public static void main(String[] args) {
         /*
     Go to https://www.wikipedia.org/
