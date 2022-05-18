@@ -1,6 +1,7 @@
 package home_Practice;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import test.ValidationUtils;
@@ -8,15 +9,27 @@ import utilities.Driver;
 
 public class Validate_Title_Tesla {
     public static void main(String[] args) {
+         /*
+        Go to https://www.wikipedia.org/
+        Search for "Tesla"
+        Validate the main title of the page is "Tesla"
+        NOTE: Use xpath or cssSelector to locate the web elements
+         */
+
         WebDriver driver = Driver.getDriver();
         driver.get("https://www.wikipedia.org/");
-        driver.findElement(By.id("searchInput")).sendKeys("Tesla");
 
-        //driver.findElement(By.xpath("//button[@class='pure-button pure-button-primary-progressive']")).click();
-        driver.findElement(By.xpath("//button[contains(@class,'pure-button')]")).click();
+        WebElement searchInputBox = driver.findElement(By.cssSelector("#searchInput"));
+        //WebElement searchButton = driver.findElement(By.cssSelector(".pure-button"));
 
-        String expectedTitle = "Tesla - Wikipedia";
-        ValidationUtils.validateTitle1(driver, expectedTitle);
+        searchInputBox.sendKeys("Tesla" + Keys.RETURN); //
+        //searchButton.click();
+
+        WebElement mainHeading = driver.findElement(By.cssSelector("#firstHeading"));
+
+        if(mainHeading.getText().equals("Tesla")) System.out.println("Main title validation is PASSED");
+        else System.out.println("Main title validation is FAILED");
+
         Driver.quitDriver();
     }
 }
