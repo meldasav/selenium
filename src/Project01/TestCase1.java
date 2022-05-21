@@ -28,7 +28,7 @@ public class TestCase1 {
         System.out.println(comfyEliteLogo.isDisplayed() && comfyEliteLogo.isEnabled() ? "Logo validation PASSED" : "Logo validation FAILED");
 
         WebElement heading2 = driver.findElement(By.id("dynamic-tagline-48605"));
-        System.out.println(heading2.isDisplayed() && heading2.isEnabled() ? "heading2 verification Passed" : "heading2 verification failed");
+        System.out.println(heading2.isDisplayed() && heading2.getText().equals("High quality comfy pillows and accessories for travel, office and home.") ? "heading2 verification Passed" : "heading2 verification failed");
 
         Driver.quitDriver();
 
