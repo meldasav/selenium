@@ -31,10 +31,9 @@ public class TestCase2 {
         WebElement faceBookIcon=driver.findElement(By.cssSelector("a[rel='noopener']"));
         System.out.println(faceBookIcon.isDisplayed() && faceBookIcon.getAttribute("href").equals("https://www.facebook.com/103179127717601")?"Facebook icon Passed" : "Facebook icon Failed");
 
+        WebElement instagramIcon=driver.findElement(By.cssSelector("a[aria-label='Instagram Social Link']"));
+        System.out.println(instagramIcon.isDisplayed() && instagramIcon.getAttribute("href").equals("https://www.instagram.com/comfyelite")?"instagram icon PAssed " : "Instegram icon failed");
         
-
-
-
         Driver.quitDriver();
 
 
