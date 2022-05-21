@@ -53,5 +53,6 @@ public class _03_Selenium_Navigations {
         Thread.sleep(3000);
         driver.quit();
 
+
     }
 }
